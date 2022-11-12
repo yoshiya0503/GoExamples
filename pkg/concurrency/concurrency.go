@@ -1,0 +1,4 @@
+package concurrency
+
+func RunExample() {
+}

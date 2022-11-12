@@ -13,7 +13,6 @@ type I interface {
 
 type S struct {
 	I
-	any
 }
 
 type U func()
@@ -23,7 +22,6 @@ func (u U) A() {
 }
 
 func (s S) Call() {
-	fmt.Println(s.any)
 	fmt.Println(s.I)
 	s.A()
 }
@@ -57,7 +55,7 @@ func RunExample() {
 		fmt.Printf("%+v\n", err)
 	}
 
-	//a := S{I: U(func() {})}
-	a := S{}
-	a.Call()
+	// a := S{I: U(func() {})}
+	// a := S{}
+	// a.Call()
 }
