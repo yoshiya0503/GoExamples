@@ -16,17 +16,16 @@ type User struct {
 
 type Users []User
 
-type AgeGroup struct {
+type AgeGender struct {
 	Label  string
 	Gender string
 }
 
-func (us Users) GroupBy() map[AgeGroup]Users {
-	// mapのキーに構造体が設定できる。型があれば、slice, map以外すべて
-	// 設定できる
-	ageUser := make(map[AgeGroup]Users)
+func (us Users) GroupBy() map[AgeGender]Users {
+	// mapのキーに構造体が設定できる。型があれば、slice, map以外すべて設定できる
+	ageUser := make(map[AgeGender]Users)
 	for _, u := range us {
-		key := AgeGroup{Label: fmt.Sprintf("%v代", (u.Age/10)*10), Gender: u.Gender}
+		key := AgeGender{Label: fmt.Sprintf("%v代", (u.Age/10)*10), Gender: u.Gender}
 		ageUser[key] = append(ageUser[key], u)
 	}
 	return ageUser

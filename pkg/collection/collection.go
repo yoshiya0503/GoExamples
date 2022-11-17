@@ -16,7 +16,7 @@ type User struct {
 
 type Users []User
 
-func (us Users) FilterByAge(condition func(u User) bool) Users {
+func (us Users) FilterBy(condition func(u User) bool) Users {
 	// 自分で設定した型にはメソッドを生やすことができる。
 	// スライス型にももちろんメソッドが定義できる
 	users := make(Users, 0)
@@ -38,7 +38,7 @@ func RunExample() {
 		{ID: 6, Name: "ルーシー", Age: 43, Gender: "女性", CreatedAt: time.Now(), UpdatedAt: time.Now()},
 	}
 
-	teenAger := users.FilterByAge(func(u User) bool {
+	teenAger := users.FilterBy(func(u User) bool {
 		return u.Age < 20
 	})
 

@@ -3,8 +3,6 @@ package generics
 import (
 	"fmt"
 	"time"
-
-	"github.com/samber/lo"
 )
 
 func Map[T, U any](collection []T, fn func(T) U) []U {
@@ -53,26 +51,4 @@ func RunExample() {
 		return user.Age < 20
 	})
 	fmt.Println(kidsList)
-
-	newAgeList := lo.Map(users, func(user User, _ int) uint64 {
-		return user.Age
-	})
-
-	fmt.Println(newAgeList)
-
-	type AgeGroup struct {
-		Label  string
-		Gender string
-	}
-
-	agerMap := lo.GroupBy(users, func(user User) AgeGroup {
-		return AgeGroup{Label: fmt.Sprintf("%v代", (user.Age/10)*10), Gender: user.Gender}
-	})
-	fmt.Println(agerMap)
-	/*
-	  nameLength := lo.GroupBy(users, func(user User) int {
-	    return len(user.Name)
-	    })
-	  fmt.Println(nameLength)
-	*/
 }

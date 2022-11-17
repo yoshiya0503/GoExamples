@@ -23,4 +23,6 @@ func main() {
 	stacktrace.RunExample()
 	fmt.Println("------------concurrency------------------")
 	concurrency.RunExample()
+	fmt.Println("------------concurrency generator------------------")
+	concurrency.RunGenerator()
 }
