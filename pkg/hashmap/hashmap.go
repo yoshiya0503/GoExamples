@@ -33,15 +33,13 @@ func (us Users) GroupBy() map[AgeGender]Users {
 
 func RunExample() {
 	users := Users{
-		{ID: 1, Name: "トム", Age: 30, Gender: "男性", CreatedAt: time.Now(), UpdatedAt: time.Now()},
-		{ID: 2, Name: "ジェリー", Age: 20, Gender: "女性", CreatedAt: time.Now(), UpdatedAt: time.Now()},
-		{ID: 3, Name: "サム", Age: 10, Gender: "男性", CreatedAt: time.Now(), UpdatedAt: time.Now()},
-		{ID: 4, Name: "サラ", Age: 23, Gender: "女性", CreatedAt: time.Now(), UpdatedAt: time.Now()},
-		{ID: 5, Name: "ケビン", Age: 40, Gender: "男性", CreatedAt: time.Now(), UpdatedAt: time.Now()},
-		{ID: 6, Name: "ルーシー", Age: 43, Gender: "女性", CreatedAt: time.Now(), UpdatedAt: time.Now()},
+		{ID: 1, Name: "トム", Age: 30, Gender: "男性", CreatedAt: time.Now()},
+		{ID: 2, Name: "ジェリー", Age: 20, Gender: "女性", CreatedAt: time.Now()},
+		{ID: 3, Name: "サム", Age: 10, Gender: "男性", CreatedAt: time.Now()},
+		{ID: 4, Name: "サラ", Age: 23, Gender: "女性", CreatedAt: time.Now()},
+		{ID: 5, Name: "ケビン", Age: 40, Gender: "男性", CreatedAt: time.Now()},
+		{ID: 6, Name: "ルーシー", Age: 43, Gender: "女性", CreatedAt: time.Now()},
 	}
-
-	fmt.Println("-------------groupBy example---------------")
 	groupByAge := users.GroupBy()
 	fmt.Println(groupByAge)
 }

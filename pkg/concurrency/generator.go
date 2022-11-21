@@ -17,6 +17,7 @@ func generator[T any](context context.Context, list []T) <-chan T {
 				time.Sleep(1 * time.Second)
 			case <-context.Done():
 				fmt.Println("ABORT...")
+				return
 			}
 		}
 	}()
@@ -28,6 +29,9 @@ func RunGenerator() {
 	defer cancel()
 
 	for item := range generator(context, []int{1, 2, 3, 4, 5}) {
+		if item == 4 {
+			cancel()
+		}
 		fmt.Println(item)
 	}
 	fmt.Println("EXIT...")

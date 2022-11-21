@@ -7,25 +7,6 @@ import (
 	"golang.org/x/xerrors"
 )
 
-type I interface {
-	A()
-}
-
-type S struct {
-	I
-}
-
-type U func()
-
-func (u U) A() {
-	println("this is u")
-}
-
-func (s S) Call() {
-	fmt.Println(s.I)
-	s.A()
-}
-
 func Trace1(value int) (int, error) {
 	if value == 0 {
 		return 0, xerrors.Errorf("Trace1: %w", errors.New("input 0 value"))
@@ -54,8 +35,4 @@ func RunExample() {
 	if err != nil {
 		fmt.Printf("%+v\n", err)
 	}
-
-	// a := S{I: U(func() {})}
-	// a := S{}
-	// a.Call()
 }
